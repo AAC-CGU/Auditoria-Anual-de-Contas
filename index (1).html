@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Mesa — Metodologia AAC · CGU</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap');
+:root{
+  --azul:#1a3a5c;--azul2:#2e5fa3;--azul3:#4a8fd4;--azul-bg:#eaf1f9;
+  --lar:#d4700a;--lar2:#e8912e;--lar-bg:#fff6ed;
+  --red:#c0392b;--red-bg:#fdf0ef;
+  --green:#1a8a5c;--green-bg:#edf8f3;
+  --g1:#f8f9fb;--g2:#eceef2;--g3:#dadde3;--g4:#6b7280;--g5:#374151;
+  --w:#fff;--r:14px;--sh:0 2px 12px rgba(26,58,92,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--g5);line-height:1.6}
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--azul) 0%,var(--azul2) 70%,var(--azul3) 100%);padding:40px 24px 52px;text-align:center;position:relative;overflow:hidden}
+.hdr::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hdr-badge{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);padding:5px 18px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:16px;position:relative;z-index:1}
+.hdr h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4.5vw,42px);color:var(--w);font-weight:700;margin-bottom:8px;position:relative;z-index:1}
+.hdr p{color:rgba(255,255,255,.7);font-size:15px;max-width:560px;margin:0 auto;position:relative;z-index:1}
+/* NAV FLOW */
+.nav-wrap{max-width:1120px;margin:-28px auto 0;padding:0 16px;position:relative;z-index:5}
+.nav{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{height:3px}.nav::-webkit-scrollbar-thumb{background:var(--azul3);border-radius:9px}
+.s-btn{flex:0 0 132px;scroll-snap-align:start;background:var(--w);border:2px solid transparent;border-radius:var(--r);padding:16px 12px;text-align:center;cursor:pointer;transition:.25s;box-shadow:var(--sh);position:relative}
+.s-btn:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(26,58,92,.12)}
+.s-btn.on{border-color:var(--lar);background:linear-gradient(180deg,var(--lar-bg),var(--w));transform:translateY(-5px);box-shadow:0 8px 32px rgba(212,112,10,.15)}
+.s-num{width:30px;height:30px;border-radius:50%;background:var(--azul-bg);color:var(--azul2);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;transition:.2s}
+.s-btn.on .s-num{background:var(--lar);color:var(--w)}
+.s-ico{font-size:22px;margin-bottom:6px;display:block}
+.s-btn h3{font-size:11px;font-weight:600;line-height:1.3;color:var(--azul)}
+.s-conn{flex:0 0 14px;display:flex;align-items:center;justify-content:center;color:var(--g3);font-size:12px}
+/* MAIN PANEL */
+.main{max-width:1120px;margin:20px auto 48px;padding:0 16px}
+.panel{background:var(--w);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.p-hdr{background:linear-gradient(135deg,var(--azul),var(--azul2));padding:24px 28px;display:flex;align-items:center;gap:14px}
+.p-hdr-ico{font-size:30px}
+.p-hdr h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--w);font-weight:500}
+.p-hdr small{display:block;color:rgba(255,255,255,.65);font-size:13px;font-family:'DM Sans',sans-serif;margin-top:2px}
+.p-body{padding:28px}
+/* SECTIONS */
+.sec{margin-bottom:28px}
+.sec:last-child{margin-bottom:0}
+.sec-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--azul);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-title i{font-size:14px;color:var(--azul3)}
+.objetivo{font-size:14px;color:var(--g4);line-height:1.7;padding:14px 18px;background:var(--g1);border-radius:10px;border-left:3px solid var(--azul3)}
+/* PT CARDS */
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.pt{background:var(--g1);border:1px solid var(--g2);border-radius:12px;padding:16px;transition:.2s}
+.pt:hover{border-color:var(--azul3);background:var(--azul-bg)}
+.pt-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.pt-name{font-weight:700;font-size:13px;color:var(--azul);display:flex;align-items:center;gap:6px}
+.pt-name i{font-size:14px}
+.pt-name .w{color:#2b579a}.pt-name .x{color:#217346}
+.pt-desc{font-size:12px;color:var(--g4);line-height:1.5;margin-bottom:10px}
+.dl-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600;cursor:pointer;border:none;transition:.15s}
+.dl-btn.docx{background:#e8eef7;color:#2b579a}.dl-btn.docx:hover{background:#d0ddf0}
+.dl-btn.xlsx{background:#e5f3ec;color:#217346}.dl-btn.xlsx:hover{background:#c8e8d8}
+/* INSUMOS TABLE */
+.ins-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border-radius:10px;overflow:hidden;border:1px solid var(--g2)}
+.ins-table th{background:var(--azul);color:var(--w);padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.ins-table td{padding:10px 14px;border-bottom:1px solid var(--g2);vertical-align:top}
+.ins-table tr:last-child td{border-bottom:none}
+.ins-table tr:nth-child(even) td{background:var(--g1)}
+.sys-tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600;margin:1px 2px}
+.sys-tag.siafi{background:#e0e7ff;color:#3730a3}.sys-tag.siop{background:#fef3c7;color:#92400e}
+.sys-tag.tg{background:#ede9fe;color:#5b21b6}.sys-tag.ne{background:#e0f2fe;color:#0369a1}
+.sys-tag.pt{background:var(--lar-bg);color:var(--lar)}
+/* ALERT BOX */
+.alert{border-radius:10px;padding:14px 18px;margin-top:4px}
+.alert.warn{background:var(--red-bg);border-left:3px solid var(--red)}
+.alert.info{background:var(--green-bg);border-left:3px solid var(--green)}
+.alert-title{font-weight:700;font-size:12px;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.alert.warn .alert-title{color:var(--red)}
+.alert.info .alert-title{color:var(--green)}
+.alert p,.alert li{font-size:12px;color:var(--g5);line-height:1.6}
+.alert ul{padding-left:16px;margin-top:4px}
+/* FOOTER */
+.ftr{text-align:center;padding:28px 16px;font-size:11px;color:var(--g3);border-top:1px solid var(--g2)}
+@media(max-width:768px){.p-body{padding:18px}.pt-grid{grid-template-columns:1fr}.ins-table{font-size:12px}.s-btn{flex:0 0 110px;padding:12px 8px}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-badge">CGU · Secretaria Federal de Controle</div>
+  <h1>Guia de Mesa — Metodologia AAC</h1>
+  <p>Repositório de ferramentas e orientações práticas para cada etapa da Auditoria Anual de Contas.</p>
+</div>
+<section class="nav-wrap"><div class="nav" id="nav"></div></section>
+<section class="main"><div class="panel" id="panel"></div></section>
+<div class="ftr">CGU — Controladoria-Geral da União · Secretaria Federal de Controle Interno · Metodologia Piloto AAC · 2025</div>
+
+<script>
+const S=[
+{id:1,ico:"🔧",t:"Atividades Preliminares",sub:"Providências iniciais",
+obj:"Conforme a NBC TA 300 (R1), realizar atividades no início do trabalho de auditoria que auxiliem o auditor a identificar e avaliar eventos que possam afetar a capacidade de planejar e executar o trabalho — abrangendo a avaliação do cumprimento de requisitos éticos relevantes, incluindo a independência, e o estabelecimento de entendimento sobre os termos do trabalho.",
+pts:[
+  {n:"Ofício de Apresentação",tp:"docx",d:"Comunicação formal à Alta Administração — apresenta objetivos, escopo previsto e solicita apoio institucional e fornecimento de informações."}
+],
+ins:[
+  ["Decisão de seleção da UPC","Coordenação-Geral","—"],
+  ["Lista de membros da equipe","Coordenação-Geral","Formulário de independência"],
+  ["Informações básicas da entidade (CNPJ, estrutura)","Portal da Transparência / Siorg","Ofício de Apresentação"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão",tx:"Verifique se <strong>todos os membros</strong> assinaram o formulário de independência e conflito de interesses antes do início dos trabalhos. A ausência compromete a validade do trabalho."},
+  {tp:"info",tt:"✅ Boa Prática",tx:"O Ofício de Apresentação não é formalidade — é o primeiro momento de diálogo com o gestor. Apresente os objetivos com clareza e solicite interlocutores técnicos para cada macroprocesso."}
+]},
+
+{id:2,ico:"🔍",t:"Entendimento da Entidade",sub:"Análise preliminar — nível da entidade",
+obj:"Obter compreensão suficiente da entidade — governança, macroprocessos, demonstrações contábeis e partes relacionadas — para orientar a materialidade, a identificação de riscos e o planejamento.",
+pts:[
+  {n:"PT 1 — Entendimento Geral",tp:"docx",d:"Competências, macroprocessos finalísticos, governança, planejamento, orçamento, gestão de riscos, integridade e deliberações de controle."},
+  {n:"PT 2 — Análise Financeira e Políticas Contábeis",tp:"docx",d:"Estrutura de relatório financeiro, políticas contábeis, Quadro 1 de perguntas críticas (segmentação, concessões, benefícios, ativos biológicos etc.)."},
+  {n:"PT 2.01 — Análise das Informações Contábeis",tp:"xlsx",d:"Planilha automatizada: importa balancetes T0 e T1, calcula Top 10 saldos (AV), Top 10 variações % e absolutas (AH), indicadores de liquidez e endividamento."},
+  {n:"PT 4 — Partes Relacionadas",tp:"docx",d:"Identificação do pessoal-chave (Quadro 1), entidades controladas/sob controle comum (Quadro 2) e entidades sob influência significativa (Quadro 3)."}
+],
+ins:[
+  ["Balancete contábil 4º nível (T1 e T0)","<span class='sys-tag siafi'>Siafi</span>","PT 2.01 abas balancete (T1) e (T0)"],
+  ["Notas Explicativas e Declaração do Contador","<span class='sys-tag ne'>Notas Explicativas</span>","PT 2 — Políticas Contábeis (Quadro 2)"],
+  ["Relação de dirigentes e pessoal-chave (CPFs)","<span class='sys-tag tg'>Tesouro Gerencial</span> / Portal da Transparência","PT 4 — Quadro 1 (Pessoal-chave)"],
+  ["Entidades controladas, coligadas e sob influência","<span class='sys-tag siafi'>Siafi</span> / <span class='sys-tag tg'>TG</span>","PT 4 — Quadros 2 e 3"],
+  ["Deliberações anteriores (TCU, CGU)","e-CGU / TCU (Pesquisa processual)","PT 1 — Seção de deliberações"],
+  ["Planejamento estratégico e orçamento da entidade","Site institucional / SIOP","PT 1 — Seções de planejamento e orçamento"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — PT 2.01",tx:"A análise vertical e horizontal deve ser feita no <strong>4º nível de desdobramento (título)</strong>. Compare os saldos de T1 com a mesma competência de T0 — especialmente para contas de fluxo (VPD/VPA). Variações infinitas (saldo zero em T0 ou T1) não devem constar no Top 10 de variação percentual."},
+  {tp:"warn",tt:"⚠️ Critério de Revisão — PT 4",tx:"<strong>Não se limite ao organograma.</strong> O pessoal-chave inclui qualquer pessoa com autoridade e responsabilidade por planejar, dirigir e controlar as atividades da entidade. Realize cruzamento de CPFs/CNPJs no Tesouro Gerencial para identificar vínculos não declarados."}
+]},
+
+{id:3,ico:"📐",t:"Materialidade",sub:"Aspectos patrimonial e orçamentário",
+obj:"Calcular os níveis de materialidade (MG, ME e LAD), identificar contas e ações materiais — quantitativa e qualitativamente — e agrupá-las em objetos de auditoria.",
+pts:[
+  {n:"PT 5 — Materialidade",tp:"docx",d:"Consolida referenciais, níveis, elementos materiais (Tabelas 2 e 3) e justificativas. Registra materialidade específica, se aplicável."},
+  {n:"PT 5.01 — Aspecto Patrimonial",tp:"xlsx",d:"Planilha automatizada: importa balancete 4º nível, calcula MG/ME/LAD sobre ativo total, desconta intraorçamentárias, sinaliza contas ≥ ME."},
+  {n:"PT 5.02 — Aspecto Orçamentário",tp:"xlsx",d:"Planilha automatizada: importa dotação atualizada (Siop), calcula MG/ME/LAD, sinaliza ações ≥ ME. Aba Qualitativa para pontuação (Prioridade, Valor Agregado, Interesse Público, Criticidade)."},
+  {n:"PT 6 — Objetos de Auditoria",tp:"docx",d:"Quadro 1: encadeamento contas × ações por objeto. Quadro 2: objetos selecionados com descrição e referência ao PT 6.XX."},
+  {n:"PT 6.XX — [Objeto de Auditoria]",tp:"docx",d:"Detalhamento por objeto: visão geral, processos de trabalho, análise de saldos, normas aplicáveis e fatores de risco inerente (Quadro 1 — 8 perguntas NBC TA 315)."}
+],
+ins:[
+  ["Balancete 4º nível (mais recente)","<span class='sys-tag siafi'>Siafi</span>","PT 5.01 — aba Materialidade (NIP)"],
+  ["Saldos intraorçamentários (5º nível, dígito 2)","<span class='sys-tag siafi'>Siafi</span>","PT 5.01 — aba INTRA (desconto automático)"],
+  ["Dotação atualizada por programa/ação","<span class='sys-tag siop'>SIOP</span>","PT 5.02 — aba Materialidade (NIO)"],
+  ["Informações qualitativas (PPA, LDO, PAINT, mídia)","Diversas fontes","PT 5.02 — aba Critérios Qualitativos"],
+  ["Contas e ações materiais selecionadas","<span class='sys-tag pt'>PT 5.01 e PT 5.02</span>","PT 6 — Quadro 1 (encadeamento)"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Materialidade Quantitativa",tx:"<ul><li>Percentuais: MG = <strong>2%</strong> do referencial | ME = <strong>50%</strong> da MG | LAD = <strong>5%</strong> da MG.</li><li><strong>Desconte os intraorçamentários</strong> (dígito 2 no 5º nível) antes de comparar com os limiares — a planilha faz isso automaticamente na coluna Saldo Ajustado.</li><li>A ME é <strong>indicativa</strong>, não obrigatória: contas acima da ME são candidatas, mas a decisão final é da equipe.</li></ul>"},
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Objetos (PT 6)",tx:"Nomeie os objetos pela <strong>política pública</strong>, não pela conta contábil. Elementos destacados em <strong style='color:red'>vermelho</strong> no Quadro 1 são não materiais incluídos por conveniência — a justificativa é obrigatória na coluna Observações."}
+]},
+
+{id:4,ico:"⚡",t:"Riscos e Controles",sub:"Nível da entidade e das afirmações",
+obj:"Identificar riscos de distorção relevante (financeiros e de conformidade) e avaliar os controles existentes (RI × RC = RDR), no nível da entidade e no nível das afirmações.",
+pts:[
+  {n:"PT 7 — Riscos e Controles",tp:"docx",d:"Nível da entidade: riscos de integridade (Portaria CGU 57/2019), fragilidades do SCI, continuidade operacional (NBC TA 570), clima político e interesse público."},
+  {n:"PT 7.01 — Matriz de Riscos e Controles",tp:"xlsx",d:"Aba MRC: riscos por objeto, causas, consequências, controles preventivos/detectivos/corretivos. Aba IAR: probabilidade, impacto → RI, nível de controle → RC e RDR resultante."}
+],
+ins:[
+  ["PTs 1 a 4 (entendimento da entidade)","<span class='sys-tag pt'>PTs anteriores</span>","PT 7 — Riscos no nível da entidade"],
+  ["PT 6.XX (processos detalhados por objeto)","<span class='sys-tag pt'>PT 6.XX</span>","PT 7.01 — aba MRC (riscos por objeto)"],
+  ["Programas de integridade da entidade","Site institucional / e-CGU","PT 7 — Seção de integridade"],
+  ["Escalas de probabilidade e impacto","Metodologia de Gestão de Riscos CGU / MOT","PT 7.01 — aba escalas"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Identificação de Riscos",tx:"<ul><li><strong>Não confunda</strong> procedimentos do processo com atividades de controle. O controle existe para mitigar um risco — teoricamente poderia ser removido sem comprometer o resultado.</li><li><strong>Não enuncie</strong> falhas de controle como eventos de risco. Ex.: \"ausência de prestação de contas\" é falha de controle; o risco é \"execução de objeto distinto do pactuado\".</li></ul>"},
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Avaliação",tx:"Classifique cada controle em <strong>três colunas separadas</strong> (preventivo, detectivo, corretivo) na aba MRC. A avaliação do risco inerente (RI) e do risco de controle (RC) determina o risco de distorção relevante (RDR) de cada afirmação."}
+]},
+
+{id:5,ico:"🎯",t:"Estratégia e Plano",sub:"Alcance, direção e procedimentos",
+obj:"Consolidar os resultados do planejamento em decisões sobre escopo, recursos, cronograma, respostas gerais (nível da entidade) e procedimentos adicionais (nível das afirmações).",
+pts:[
+  {n:"PT 8 — Estratégia Global de Auditoria",tp:"docx",d:"Pré-preenchido: características do trabalho, objetivos do relatório e certificado, materialidade (síntese), objetos, escopo/não escopo, recursos, cronograma."},
+  {n:"PT 9 — Plano de Auditoria",tp:"docx",d:"Respostas gerais (Quadro 1: risco → resposta no nível da entidade). Respostas específicas (Quadro 2: risco Rx → procedimento Px). Limitações da auditoria."},
+  {n:"PT 9.01 — Matriz de Planejamento",tp:"xlsx",d:"Detalhamento dos procedimentos: questão, subquestão, teste, critério, informações requeridas, fonte, possíveis achados, risco, responsável e período."}
+],
+ins:[
+  ["PT 7 e 7.01 (riscos avaliados e RDR)","<span class='sys-tag pt'>PT 7 / 7.01</span>","PT 9 — Quadros 1 e 2"],
+  ["PT 6 (objetos selecionados)","<span class='sys-tag pt'>PT 6</span>","PT 8 — Seção Objetos de Auditoria"],
+  ["PT 5 (níveis de materialidade)","<span class='sys-tag pt'>PT 5</span>","PT 8 — Seção Materialidade"],
+  ["Normas e critérios aplicáveis por objeto","<span class='sys-tag pt'>PT 6.XX</span>","PT 9.01 — coluna Critério"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Escopo",tx:"O PT 8 distingue <strong>não escopo</strong> (decisão deliberada da equipe) de <strong>limitações</strong> (registradas no PT 9 — dificuldades operacionais). Não confunda os dois conceitos."},
+  {tp:"info",tt:"✅ Boa Prática",tx:"O planejamento é iterativo: <strong>revise a Matriz de Planejamento (PT 9.01) após os testes de desenho e implementação.</strong> O acúmulo de conhecimento permite aprimorar os procedimentos seguintes."}
+]},
+
+{id:6,ico:"🔬",t:"Execução",sub:"Procedimentos e achados",
+obj:"Aplicar testes de controle (desenho → implementação → aplicação) e procedimentos substantivos (analíticos e detalhes), registrando resultados e achados estruturados.",
+pts:[
+  {n:"PT 10 — Matriz de Procedimentos",tp:"xlsx",d:"Aba Realizados: por risco — controles-chave, testes de desenho/implementação/aplicação, deficiências, analíticos, detalhes, distorções. Aba Não Realizados: justificativas."},
+  {n:"PT 11 — Matriz de Achados",tp:"xlsx",d:"Para cada achado: questão, subquestão, descrição sumária, critério, condição, evidência, informações extraídas e causa."}
+],
+ins:[
+  ["PT 9.01 (procedimentos planejados)","<span class='sys-tag pt'>PT 9.01</span>","PT 10 — aba Realizados"],
+  ["Documentos, registros e dados da entidade","<span class='sys-tag siafi'>Siafi</span> / Processos SEI / SAs","PT 10 — coluna Resultados"],
+  ["Resultados dos procedimentos executados","<span class='sys-tag pt'>PT 10</span>","PT 11 — Matriz de Achados"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Registro de Controles",tx:"Ao descrever atividades de controle, evidencie os 6 elementos: <strong>QUANDO</strong> (periodicidade), <strong>QUEM</strong> (responsável), <strong>ONDE</strong> (órgão/setor), <strong>O QUÊ</strong> (atividade — não o processo), <strong>POR QUÊ</strong> (finalidade) e <strong>COMO</strong> (forma de execução e evidenciação). A ausência de algum pode sinalizar deficiência."},
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Achados",tx:"Todo achado deve conter a estrutura <strong>critério → condição → evidência → causa</strong>. Vincule cada achado ao procedimento que o originou (rastreabilidade PT 9.01 → PT 10 → PT 11)."}
+]},
+
+{id:7,ico:"📋",t:"Comunicação",sub:"Relatório e certificado",
+obj:"Comunicar os resultados à Alta Administração e ao TCU por meio de relatório (estruturado por objeto) e certificado de auditoria, com o parecer do dirigente do controle interno.",
+pts:[
+  {n:"Relatório de Auditoria",tp:"docx",d:"Estruturado por objeto de auditoria: descrição do processo, procedimentos aplicados (P01, P02...), deficiências de controle interno, distorções/não conformidades e recomendações."},
+  {n:"Certificado de Auditoria",tp:"docx",d:"Opinião sobre a exatidão dos registros contábeis e a conformidade dos atos de gestão dos objetos auditados."},
+  {n:"Nota de Auditoria",tp:"docx",d:"Comunicação de constatações de baixa relevância — sem impacto no certificado. Pode incluir deficiências operacionais identificadas."}
+],
+ins:[
+  ["PT 10 (procedimentos executados e resultados)","<span class='sys-tag pt'>PT 10</span>","Relatório — Resultados dos Exames"],
+  ["PT 11 (achados estruturados)","<span class='sys-tag pt'>PT 11</span>","Relatório — Achados por objeto"],
+  ["Manifestação da gestão (reunião de busca conjunta)","Entidade auditada","Relatório — Manifestação e análise da equipe"],
+  ["PT 5 (materialidade para avaliação de distorções)","<span class='sys-tag pt'>PT 5</span>","Certificado — Formação da opinião"]
+],
+alerts:[
+  {tp:"warn",tt:"⚠️ Critério de Revisão — Estrutura do Relatório",tx:"O relatório é estruturado <strong>por objeto de auditoria</strong> (não por tipo de distorção). Cada procedimento vincula o(s) risco(s), os controles avaliados, os critérios e os achados — garantindo rastreabilidade completa desde o planejamento."},
+  {tp:"info",tt:"✅ Boa Prática",tx:"Distorções e não conformidades identificadas por procedimentos substantivos devem, sempre que possível, ser apresentadas <strong>como consequência de deficiências de controle interno</strong> no respectivo achado — e não como achados independentes."}
+]}
+];
+
+function renderNav(){
+  const c=document.getElementById('nav');
+  S.forEach((s,i)=>{
+    const b=document.createElement('div');b.className=`s-btn${i===0?' on':''}`;b.id=`sb-${s.id}`;
+    b.onclick=()=>sel(s.id);
+    b.innerHTML=`<div class="s-num">${s.id}</div><span class="s-ico">${s.ico}</span><h3>${s.t}</h3>`;
+    c.appendChild(b);
+    if(i<S.length-1){const cn=document.createElement('div');cn.className='s-conn';cn.innerHTML='›';c.appendChild(cn)}
+  });
+}
+
+function sel(id){
+  document.querySelectorAll('.s-btn').forEach(b=>b.classList.remove('on'));
+  document.getElementById(`sb-${id}`).classList.add('on');
+  render(id);
+}
+
+function render(id){
+  const s=S.find(x=>x.id===id),p=document.getElementById('panel');
+  const ptsH=s.pts.map(pt=>{
+    const cls=pt.tp==='xlsx'?'x':'w';
+    const ico=pt.tp==='xlsx'?'fa-file-excel':'fa-file-word';
+    const btnCls=pt.tp==='xlsx'?'xlsx':'docx';
+    const btnTxt=pt.tp==='xlsx'?'📊 Modelo .xlsx':'📥 Modelo .docx';
+    return`<div class="pt"><div class="pt-top"><div class="pt-name"><i class="fa-solid ${ico} ${cls}"></i> ${pt.n}</div></div><div class="pt-desc">${pt.d}</div><button class="dl-btn ${btnCls}" onclick="alert('Em produção: o download será configurado com o caminho dos arquivos na intranet da CGU.')">${btnTxt}</button></div>`;
+  }).join('');
+
+  const insH=s.ins.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('');
+  const alertsH=s.alerts.map(a=>`<div class="alert ${a.tp}"><div class="alert-title">${a.tt}</div><p>${a.tx}</p></div>`).join('');
+
+  p.innerHTML=`
+    <div class="p-hdr"><span class="p-hdr-ico">${s.ico}</span><div><h2>${s.id}. ${s.t}</h2><small>${s.sub}</small></div></div>
+    <div class="p-body">
+      <div class="sec"><div class="sec-title"><i class="fa-solid fa-bullseye"></i>OBJETIVO</div><div class="objetivo">${s.obj}</div></div>
+      <div class="sec"><div class="sec-title"><i class="fa-solid fa-folder-open"></i>FERRAMENTAS (PAPÉIS DE TRABALHO)</div><div class="pt-grid">${ptsH}</div></div>
+      <div class="sec"><div class="sec-title"><i class="fa-solid fa-table-columns"></i>INSUMOS E ARTEFATOS</div>
+        <table class="ins-table"><thead><tr><th style="width:38%">O que preciso (Insumo)</th><th style="width:28%">Onde buscar (Sistema)</th><th style="width:34%">Onde preencher (Artefato)</th></tr></thead><tbody>${insH}</tbody></table>
+      </div>
+      <div class="sec"><div class="sec-title"><i class="fa-solid fa-triangle-exclamation"></i>ALERTAS DE REVISÃO</div>${alertsH}</div>
+    </div>`;
+  p.style.animation='none';p.offsetHeight;p.style.animation='fadeIn .35s ease';
+}
+
+renderNav();render(1);
+</script>
+</body>
+</html>
