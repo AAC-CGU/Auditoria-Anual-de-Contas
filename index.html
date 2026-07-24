@@ -6,6 +6,48 @@
 <title>Guia de Mesa — Metodologia AAC · CGU</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
+<!-- TAB CONTROLLER -->
+<style>
+.tab-bar{background:var(--azul);display:flex;justify-content:center;gap:4px;padding:0 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.tab-btn{padding:14px 28px;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;transition:.2s;letter-spacing:.3px}
+.tab-btn:hover{color:rgba(255,255,255,.9)}
+.tab-btn.on{color:#fff;border-bottom-color:var(--lar2)}
+.tab-section{display:none}.tab-section.on{display:block}
+/* SISTEMAS */
+.sis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:28px}
+.sis-card{background:var(--g1);border:2px solid transparent;border-radius:var(--r);padding:16px;text-align:center;cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.sis-card:hover{border-color:var(--azul3);transform:translateY(-2px)}
+.sis-card.on{border-color:var(--lar);background:var(--lar-bg)}
+.sis-ico{font-size:28px;margin-bottom:8px;display:block}
+.sis-card h3{font-size:12px;font-weight:700;color:var(--azul);line-height:1.3}
+.sis-detail{display:none;animation:fadeIn .3s ease}.sis-detail.on{display:block}
+.sis-hdr{background:linear-gradient(135deg,var(--azul),var(--azul2));padding:20px 28px;border-radius:var(--r) var(--r) 0 0;display:flex;align-items:center;gap:12px;margin-top:4px}
+.sis-hdr h2{font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:500}
+.sis-hdr small{color:rgba(255,255,255,.65);font-size:12px;display:block;margin-top:2px}
+.sis-body{background:var(--w);padding:24px;border-radius:0 0 var(--r) var(--r);box-shadow:var(--sh)}
+.uso-list{list-style:none;padding:0}
+.uso-list li{padding:6px 0 6px 18px;position:relative;font-size:13px;color:#555;line-height:1.6;border-bottom:1px solid var(--g2)}
+.uso-list li:last-child{border-bottom:none}
+.uso-list li::before{content:'›';position:absolute;left:2px;color:var(--lar);font-weight:700}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px}
+.res-card{background:var(--g1);border:1px solid var(--g2);border-radius:10px;padding:12px 14px;transition:.15s}
+.res-card:hover{border-color:var(--azul3);background:var(--azul-bg)}
+.res-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--azul3);margin-bottom:6px}
+.res-link{display:block;font-size:12px;color:var(--azul2);text-decoration:none;line-height:1.4;margin-bottom:4px;padding:2px 0}
+.res-link:hover{text-decoration:underline}
+.step-box{background:var(--azul-bg);border-left:3px solid var(--azul2);border-radius:0 8px 8px 0;padding:12px 16px;margin:10px 0;font-size:13px}
+.step-box strong{color:var(--azul);display:block;margin-bottom:4px}
+/* PROCEDIMENTOS */
+.proc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:16px}
+.proc-card{background:var(--w);border:1px solid var(--g2);border-radius:var(--r);padding:20px;box-shadow:var(--sh);transition:.2s}
+.proc-card:hover{border-color:var(--azul3);box-shadow:0 6px 24px rgba(26,58,92,.1)}
+.proc-num{display:inline-block;background:var(--azul);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:99px;margin-bottom:10px}
+.proc-card h3{font-size:14px;font-weight:700;color:var(--azul);margin-bottom:8px}
+.proc-card p{font-size:13px;color:#555;line-height:1.6}
+.proc-note{background:var(--lar-bg);border-left:3px solid var(--lar);border-radius:0 10px 10px 0;padding:14px 18px;margin-top:28px;font-size:13px;color:#6b5b3a}
+@media(max-width:768px){.tab-btn{padding:12px 14px;font-size:12px}.sis-grid{grid-template-columns:repeat(2,1fr)}.proc-grid{grid-template-columns:1fr}}
+</style>
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap');
 :root{
   --azul:#1a3a5c;--azul2:#2e5fa3;--azul3:#4a8fd4;--azul-bg:#eaf1f9;
@@ -87,6 +129,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--g5);line-
 </style>
 </head>
 <body>
+<div id="tab-metodologia" class="tab-section on">
 <div class="hdr">
   <div class="hdr-badge">CGU · Secretaria Federal de Controle</div>
   <h1>Guia de Mesa — Metodologia AAC</h1>
@@ -94,6 +137,182 @@ body{font-family:'DM Sans',sans-serif;background:var(--g1);color:var(--g5);line-
 </div>
 <section class="nav-wrap"><div class="nav" id="nav"></div></section>
 <section class="main"><div class="panel" id="panel"></div></section>
+</div><!-- end tab-metodologia -->
+
+<div id="tab-sistemas" class="tab-section" style="max-width:1120px;margin:28px auto 48px;padding:0 16px">
+  <div class="panel">
+    <div class="p-hdr"><span class="p-hdr-ico">💻</span><div><h2>Sistemas de Informação</h2><small>Acesso, uso na auditoria e recursos de apoio por sistema</small></div></div>
+    <div class="p-body">
+      <div class="sec"><div class="sec-title"><i class="fa-solid fa-grip"></i>SELECIONE O SISTEMA</div>
+      <div class="sis-grid">
+        <div class="sis-card on" id="sc-siafi" onclick="showSis('siafi')"><span class="sis-ico">🏦</span><h3>SIAFI</h3></div>
+        <div class="sis-card" id="sc-siop" onclick="showSis('siop')"><span class="sis-ico">📊</span><h3>SIOP</h3></div>
+        <div class="sis-card" id="sc-tg" onclick="showSis('tg')"><span class="sis-ico">📈</span><h3>Tesouro Gerencial</h3></div>
+        <div class="sis-card" id="sc-spunet" onclick="showSis('spunet')"><span class="sis-ico">🏛️</span><h3>SPUnet</h3></div>
+        <div class="sis-card" id="sc-siads" onclick="showSis('siads')"><span class="sis-ico">📦</span><h3>SIADS</h3></div>
+        <div class="sis-card" id="sc-transf" onclick="showSis('transf')"><span class="sis-ico">🔄</span><h3>Transferegov</h3></div>
+        <div class="sis-card" id="sc-transp" onclick="showSis('transp')"><span class="sis-ico">🔍</span><h3>Portal da Transparência</h3></div>
+        <div class="sis-card" id="sc-spu" onclick="showSis('spu')"><span class="sis-ico">🗺️</span><h3>SPU Transparência Ativa</h3></div>
+        <div class="sis-card" id="sc-comp" onclick="showSis('comp')"><span class="sis-ico">📚</span><h3>Recursos Complementares</h3></div>
+      </div></div>
+
+      <!-- SIAFI -->
+      <div id="sis-siafi" class="sis-detail on">
+        <div class="sis-hdr"><span style="font-size:28px">🏦</span><div><h2>SIAFI</h2><small>Sistema Integrado de Administração Financeira do Governo Federal</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">O SIAFI é o sistema estruturante que centraliza o registro da execução orçamentária, financeira e contábil da Administração Pública Federal. Funciona como base unificada sob os regimes de competência e caixa, processando todos os atos e fatos administrativos dos órgãos da União e subsidiando a geração das demonstrações financeiras consolidadas.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Extração de balancetes contábeis no 4º nível de desdobramento (título) para análise de materialidade patrimonial (PT 5.01).</li><li>Consulta a contas correntes, notas de empenho, liquidação e ordens bancárias para testes substantivos.</li><li>Reconciliação de saldos contábeis e verificação de conformidade com limites legais.</li><li>Identificação de contas intraorçamentárias para expurgo no cálculo da materialidade.</li><li>Verificação de registros de bens imóveis (SPUnet) e bens móveis (SIADS) para testes de existência.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://siafi.tesouro.gov.br/senha/public/pages/security/login.jsf" target="_blank">SIAFI Web — Acesso ao sistema</a></div>
+            <div class="res-card"><div class="res-label">🔑 Solicitar Acesso</div><a class="res-link" href="https://servicos.cgu.gov.br" target="_blank">Portal de Serviços CGU (pesquisar: SIAFI)</a><a class="res-link" href="https://www.gov.br/tesouronacional/pt-br/siafi/como-acessar" target="_blank">Orientações — Tesouro Nacional</a></div>
+            <div class="res-card"><div class="res-label">📖 Manuais</div><a class="res-link" href="https://www.gov.br/tesouronacional/pt-br/siafi/biblioteca-e-manual-siafi" target="_blank">Biblioteca e Manual SIAFI</a></div>
+            <div class="res-card"><div class="res-label">🎓 Cursos</div><a class="res-link" href="https://repositorio.enap.gov.br/jspui/handle/1/6249" target="_blank">SIAFI Básico — Enap</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIOP -->
+      <div id="sis-siop" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">📊</span><div><h2>SIOP</h2><small>Sistema Integrado de Planejamento e Orçamento</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">O SIOP centraliza todo o ciclo de planejamento e orçamento da União, abrangendo a formulação, o acompanhamento e a modificação das leis orçamentárias (PPA, LDO e LOA), o processamento de créditos adicionais e o registro das metas físicas. Enquanto o SIAFI registra a execução financeira, o SIOP estrutura as dotações e os objetivos que a antecederam.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Extração da dotação atualizada por programa e ação orçamentária para o cálculo da materialidade orçamentária (PT 5.02).</li><li>Validação de limites e dotações: compatibilidade entre créditos autorizados na LOA e tetos carregados no SIAFI.</li><li>Análise da legalidade de créditos adicionais (suplementares, especiais e extraordinários).</li><li>Rastreamento da despesa desde o planejamento (SIOP) até o pagamento (SIAFI).</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://www.siop.planejamento.gov.br/modulo/login/#/" target="_blank">SIOP — Acesso ao sistema</a><a class="res-link" href="https://www1.siop.planejamento.gov.br/QvAJAXZfc/opendoc.htm?document=IAS%2FExecucao_Orcamentaria.qvw&host=QVS%40pqlk04&anonymous=true&sheet=SH06" target="_blank">Painel público de Execução Orçamentária</a></div>
+            <div class="res-card"><div class="res-label">🔑 Solicitar Acesso</div><a class="res-link" href="https://servicos.cgu.gov.br/sm/ess/offeringPage/SISTEMAS_SIOP%20%28ITEM%29?TENANTID=574983957" target="_blank">Portal de Serviços CGU</a></div>
+            <div class="res-card"><div class="res-label">📖 Manuais</div><a class="res-link" href="https://www1.siop.planejamento.gov.br/siopdoc/doku.php/start" target="_blank">Manual SIOP — Ministério do Planejamento</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TG -->
+      <div id="sis-tg" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">📈</span><div><h2>Tesouro Gerencial (TG)</h2><small>Ferramenta de Business Intelligence do Tesouro Nacional</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">O Tesouro Gerencial é a ferramenta oficial de BI e extração de dados do Tesouro Nacional. Atua como camada analítica sobre o SIAFI, permitindo que auditores processem, cruzem e visualizem dados orçamentários, financeiros e contábeis de forma flexível e customizada, sem depender de relatórios padronizados da TI.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Geração de trilhas de auditoria customizadas: tabelas com dimensões específicas (órgão, elemento de despesa, favorecido) para isolar anomalias.</li><li>Procedimentos analíticos substantivos: identificação de flutuações e desvios significativos entre exercícios.</li><li>Análise massiva de dados para testes de amostragem e cruzamentos de CPFs/CNPJs.</li><li>Drill-down do nível macro (ministério) ao nível micro (documento de liquidação).</li><li>Comparação de séries históricas para testes de consistência de saldos.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://tesourogerencial.tesouro.gov.br/tg/servlet/mstrWeb?pg=login&v=1783968493533" target="_blank">Tesouro Gerencial — Acesso ao sistema</a></div>
+            <div class="res-card"><div class="res-label">🔑 Solicitar Acesso</div><a class="res-link" href="https://servicos.cgu.gov.br" target="_blank">Portal de Serviços CGU (pesquisar: Tesouro Gerencial)</a></div>
+            <div class="res-card"><div class="res-label">📖 Manuais</div><a class="res-link" href="https://www.youtube.com/playlist?list=PLJDqJWGmL7ka5wyBT7jP_jQ1MFtg5R9Em" target="_blank">Tutoriais em vídeo — YouTube oficial</a></div>
+            <div class="res-card"><div class="res-label">🎓 Cursos</div><a class="res-link" href="https://www.escolavirtual.gov.br/curso/283" target="_blank">Tesouro Gerencial — Escola Virtual Gov</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPUNET -->
+      <div id="sis-spunet" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">🏛️</span><div><h2>SPUnet</h2><small>Plataforma de Gestão Integrada dos Imóveis Públicos Federais</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">O SPUnet substitui o SPIUNet (desativado em 2026) e centraliza o cadastro físico, cartorial e a geoinformação dos imóveis públicos federais. Possui módulo de contabilidade integrado nativamente ao SIAFI, garantindo que reavaliações, depreciações, baixas e incorporações reflitam automaticamente na contabilidade.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Consulta ao cadastro de bens imóveis para testes de existência, classificação contábil e avaliação patrimonial.</li><li>Verificação da compatibilidade entre SPUnet e saldos no SIAFI (contas 1.2.3.X — Bens Imóveis).</li><li>Auditoria de reavaliações e depreciações: taxas aplicadas e valores residuais conforme o MCASP.</li><li>Identificação de imóveis sem registro contábil correspondente ou com duplicidade de registros.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://spiunet.spu.planejamento.gov.br/Default.asp" target="_blank">SPUnet — Acesso ao sistema</a></div>
+            <div class="res-card"><div class="res-label">🔑 Solicitar Acesso</div><a class="res-link" href="https://servicos.cgu.gov.br" target="_blank">Portal de Serviços CGU (pesquisar: SPUnet)</a></div>
+            <div class="res-card"><div class="res-label">📖 Manuais</div><a class="res-link" href="https://www.gov.br/gestao/pt-br/assuntos/patrimonio-da-uniao/transformacao-digital/capacitacao-1/manuais-e-tutoriais-2" target="_blank">Manuais e tutoriais SPUnet — SPU</a></div>
+            <div class="res-card"><div class="res-label">🎓 Cursos</div><a class="res-link" href="https://www.escolavirtual.gov.br/curso/958" target="_blank">SPIUNet — Escola Virtual Gov</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIADS -->
+      <div id="sis-siads" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">📦</span><div><h2>SIADS</h2><small>Sistema Integrado de Gestão de Patrimônio e Serviços de Logística</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">O SIADS gerencia a cadeia de suprimentos e bens móveis da União, do almoxarifado ao controle físico, depreciação e baixa de bens. Integrado nativamente ao SIAFI — cada movimentação física gera automaticamente o evento contábil correspondente.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Extração do inventário analítico para testes de existência e integridade de bens móveis e estoques.</li><li>Relatórios de depreciação acumulada para validação das taxas conforme o MCASP.</li><li>Testes de corte (cut-off): movimentações nos últimos dias do exercício.</li><li>Verificação da integração SIADS-SIAFI: divergências entre inventário físico e saldo contábil.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://siads.fazenda.gov.br/siadsweb/login" target="_blank">SIADS — Acesso ao sistema</a></div>
+          </div>
+          <div class="sec-title" style="margin-top:20px;margin-bottom:10px"><i class="fa-solid fa-key"></i>COMO SOLICITAR ACESSO AO SIADS</div>
+          <div class="step-box"><strong>Passo 1 — Cadastro parcial no âmbito da CGU</strong>Acesse o Portal de Serviços CGU, selecione "Sistemas" → "SIADS – Solicitar serviços". O Suporte da CGU providenciará o cadastro na Rede Serpro e o cadastro parcial no SIADS.<br><br><a class="res-link" href="https://servicos.cgu.gov.br/" target="_blank">→ Portal de Serviços CGU — SIADS</a></div>
+          <div class="step-box" style="margin-top:10px"><strong>Passo 2 — Habilitação do Perfil de Auditoria</strong>Após o Passo 1, acesse o Portal MGI e selecione: SIADS > Habilitação de Cadastradores > Habilitação, perfil e senha > Solicitar orientações sobre habilitação. Abra chamado com título "HABILITAÇÃO DO PERFIL DE AUDITORIA" informando: nome, CPF, cargo (Auditor Federal de Finanças e Controle), órgão (CGU), perfis (AUDITODFC e MUDAPAH), órgão auditado com código e finalidade da auditoria.<br><br><a class="res-link" href="https://portaldeservicos.gestao.gov.br/" target="_blank">→ Portal MGI — Habilitação SIADS</a></div>
+          <p style="font-size:12px;color:#777;margin-top:12px;font-style:italic">AUDITODFC: consultas e relatórios · MUDAPAH: alternar entre unidades gestoras. Confirmação recebida na seção "Chamados" do portal MGI.</p>
+        </div>
+      </div>
+
+      <!-- TRANSFEREGOV -->
+      <div id="sis-transf" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">🔄</span><div><h2>Transferegov</h2><small>Plataforma de Transferências da União</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">Plataforma oficial para gestão das transferências voluntárias e legais da União para estados, municípios, DF e entidades privadas. Centraliza o ciclo completo — da proposição e celebração até a execução e prestação de contas.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Verificação da regularidade de convênios, contratos de repasse e termos de fomento.</li><li>Análise de conformidade na prestação de contas: cumprimento do objeto pactuado.</li><li>Rastreamento de recursos em transferências fundo a fundo.</li><li>Identificação de desvio de finalidade e ausência de prestação de contas.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso</div><a class="res-link" href="https://www.gov.br/transferegov/pt-br" target="_blank">Transferegov — Portal institucional</a></div>
+            <div class="res-card"><div class="res-label">🔑 Solicitar Acesso</div><a class="res-link" href="https://servicos.cgu.gov.br" target="_blank">Portal de Serviços CGU (pesquisar: Transferegov)</a></div>
+            <div class="res-card"><div class="res-label">🎓 Cursos</div><a class="res-link" href="https://www.escolavirtual.gov.br/curso/856" target="_blank">Fundamentos de Transferências Voluntárias</a><a class="res-link" href="https://www.escolavirtual.gov.br/curso/637" target="_blank">Transferências da União: Visão Geral</a><a class="res-link" href="https://www.escolavirtual.gov.br/curso/648" target="_blank">Ferramentas de Gestão nas Transferências</a><a class="res-link" href="https://www.escolavirtual.gov.br/curso/641" target="_blank">Prestação de Contas no Transferegov</a><a class="res-link" href="https://www.escolavirtual.gov.br/curso/649" target="_blank">Módulo Fundo a Fundo no Transferegov</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTAL TRANSPARÊNCIA -->
+      <div id="sis-transp" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">🔍</span><div><h2>Portal da Transparência</h2><small>Dados abertos da execução federal</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">Disponibiliza informações sobre execução orçamentária e financeira da União, contratos, convênios, servidores, benefícios sociais e sanções. Acesso público sem necessidade de credenciais.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Cruzamento de CPFs e CNPJs: favorecidos, fornecedores e beneficiários para testes de partes relacionadas.</li><li>Consulta a contratos e convênios: regularidade e histórico de relacionamento com terceiros.</li><li>Análise de benefícios sociais: acumulações indevidas ou beneficiários em situação irregular.</li><li>Verificação de sanções: CEIS e CNIA.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso Público</div><a class="res-link" href="https://portaldatransparencia.gov.br/" target="_blank">Portal da Transparência</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPU TRANSPARÊNCIA ATIVA -->
+      <div id="sis-spu" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">🗺️</span><div><h2>SPU Transparência Ativa</h2><small>Patrimônio imobiliário da União em dados abertos</small></div></div>
+        <div class="sis-body">
+          <p style="font-size:13px;color:#555;margin-bottom:16px;line-height:1.7">Disponibiliza informações em formato aberto sobre o patrimônio imobiliário da União gerenciado pela SPU. Permite consultas analíticas sobre localização, classificação, destinação e situação cadastral dos imóveis, sendo fonte complementar ao SPUnet.</p>
+          <div class="sec-title" style="margin-bottom:10px"><i class="fa-solid fa-bullseye"></i>USO NA AAC</div>
+          <ul class="uso-list"><li>Verificação cruzada da existência e localização de imóveis registrados no SPUnet e no SIAFI.</li><li>Testes de completude: imóveis na base da SPU sem registro contábil na entidade.</li><li>Análise de destinação e finalidade dos imóveis sob responsabilidade da entidade.</li><li>Apoio à avaliação de reavaliação patrimonial.</li></ul>
+          <div class="res-grid" style="margin-top:20px">
+            <div class="res-card"><div class="res-label">🔗 Acesso Público</div><a class="res-link" href="https://qlik-publico.paineis.gov.br/extensions/transparencia-ativa/transparencia-ativa.html" target="_blank">SPU Transparência Ativa</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECURSOS COMPLEMENTARES -->
+      <div id="sis-comp" class="sis-detail">
+        <div class="sis-hdr"><span style="font-size:28px">📚</span><div><h2>Recursos Complementares</h2><small>Manuais, normas e cursos de referência</small></div></div>
+        <div class="sis-body">
+          <div class="res-grid">
+            <div class="res-card"><div class="res-label">📖 Manuais e Normas</div><a class="res-link" href="https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais" target="_blank">Manuais do Tesouro Nacional (MCASP, SIAFI, MDF)</a><a class="res-link" href="https://portal.tcu.gov.br/biblioteca-digital/manual-de-auditoria-financeira.htm" target="_blank">Manual de Auditoria Financeira — TCU</a><a class="res-link" href="https://ecgu.cgu.gov.br/relatorios" target="_blank">Relatórios anteriores — e-CGU</a><a class="res-link" href="https://cgugovbr.sharepoint.com/sites/intracgu-gestao-de-pessoas/SitePages/Operacionaliza%C3%A7%C3%A3o-de-Sistemas-Informatizados-Governamentais.aspx" target="_blank">Solicitação de acesso a sistemas — Intranet CGU 🔒</a></div>
+            <div class="res-card"><div class="res-label">🎓 Cursos</div><a class="res-link" href="https://www.escolavirtual.gov.br/curso/342" target="_blank">Contabilidade com Foco na Gestão do Patrimônio Público</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="tab-procedimentos" class="tab-section" style="max-width:1120px;margin:28px auto 48px;padding:0 16px">
+  <div class="panel">
+    <div class="p-hdr"><span class="p-hdr-ico">🔬</span><div><h2>Procedimentos de Testes Substantivos</h2><small>Principais procedimentos aplicados nas transações contábeis da AAC</small></div></div>
+    <div class="p-body">
+      <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:24px">Os procedimentos de testes substantivos visam a detectar diretamente distorções ou não conformidades nas afirmações relevantes das demonstrações contábeis, em complemento aos testes de controle. O detalhamento por área contábil — incluindo riscos, critérios normativos e extensão recomendada — consta dos documentos <strong>TR 1.1 a TR 1.8</strong> disponíveis na intranet da CGU.</p>
+      <div class="proc-grid">
+        <div class="proc-card"><span class="proc-num">01</span><h3>Inspeção de Registros e Documentos</h3><p>Exame de registros contábeis, contratos, notas fiscais, processos administrativos e documentos de suporte das transações e saldos. É o procedimento central dos testes de detalhes e o mais amplamente utilizado na auditoria de contas.</p></div>
+        <div class="proc-card"><span class="proc-num">02</span><h3>Inspeção Física</h3><p>Verificação da existência e condições físicas de ativos tangíveis — bens móveis, bens imóveis e estoques. Fornece evidência direta sobre a afirmação de existência, sem comprovar por si só a propriedade ou o valor dos bens.</p></div>
+        <div class="proc-card"><span class="proc-num">03</span><h3>Observação</h3><p>Acompanhamento in loco de um processo ou procedimento sendo executado pela entidade. Fornece evidência sobre a aplicação de controles, mas limitada ao momento da observação.</p></div>
+        <div class="proc-card"><span class="proc-num">04</span><h3>Confirmação Externa (Circularização)</h3><p>Obtenção de representação direta de terceiros — instituições financeiras, devedores, credores e partes relacionadas. Especialmente útil para confirmar saldos de créditos, obrigações e existência de transações.</p></div>
+        <div class="proc-card"><span class="proc-num">05</span><h3>Recálculo</h3><p>Verificação da exatidão matemática de documentos, registros ou cálculos da entidade — depreciação, juros sobre empréstimos, provisões, ajustes a valor recuperável. Pode ser executado com planilhas ou sistemas.</p></div>
+        <div class="proc-card"><span class="proc-num">06</span><h3>Reexecução</h3><p>Execução independente, pela equipe, de procedimentos ou controles originalmente realizados pela entidade, com o objetivo de verificar se os resultados são consistentes com os registrados.</p></div>
+        <div class="proc-card"><span class="proc-num">07</span><h3>Procedimentos Analíticos</h3><p>Avaliação de dados financeiros e não financeiros para exame de flutuações, tendências ou relações inconsistentes com os valores esperados. Frequentemente aplicados via Tesouro Gerencial, cruzando saldos e variações entre exercícios.</p></div>
+        <div class="proc-card"><span class="proc-num">08</span><h3>Conferência de Saldos</h3><p>Reconciliação entre saldos contábeis no SIAFI e informações dos sistemas gerenciais (SIADS, SPUnet, sistemas internos) para identificar divergências, registros duplicados ou omissões.</p></div>
+        <div class="proc-card"><span class="proc-num">09</span><h3>Indagação</h3><p>Obtenção de informações por meio de Solicitações de Auditoria (SAs), reuniões ou entrevistas. Menor poder probatório quando isolado, mas indispensável para compreender o contexto e obter manifestações formais da gestão.</p></div>
+      </div>
+      <div class="proc-note">📁 O detalhamento por área contábil — Caixa e Equivalentes de Caixa, Bens Móveis, Bens Imóveis, Provisões, Fornecedores, Empréstimos e Financiamentos, Estoques, Partes Relacionadas e Restos a Pagar — está disponível nos documentos <strong>TR 1.1 a TR 1.8</strong> na intranet da CGU.</div>
+    </div>
+  </div>
+</div>
+
 <div class="ftr">CGU — Controladoria-Geral da União · Secretaria Federal de Controle Interno · Metodologia Piloto AAC · 2025</div>
 
 <script>
@@ -271,5 +490,21 @@ function render(id){
 
 renderNav();render(1);
 </script>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('tab-' + id).classList.add('on');
+  btn.classList.add('on');
+}
+function showSis(id) {
+  document.querySelectorAll('.sis-card').forEach(c => c.classList.remove('on'));
+  document.querySelectorAll('.sis-detail').forEach(d => { d.classList.remove('on'); });
+  document.getElementById('sc-' + id).classList.add('on');
+  document.getElementById('sis-' + id).classList.add('on');
+}
+</script>
+
 </body>
 </html>
